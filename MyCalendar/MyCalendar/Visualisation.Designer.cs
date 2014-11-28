@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.genCalendar = new System.Windows.Forms.Button();
             this.label = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // genCalendar
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(56, 203);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(292, 72);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Построить страницу календаря";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.genCalendar.AutoSize = true;
+            this.genCalendar.BackColor = System.Drawing.Color.Yellow;
+            this.genCalendar.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.genCalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.genCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.genCalendar.Location = new System.Drawing.Point(56, 203);
+            this.genCalendar.Name = "genCalendar";
+            this.genCalendar.Size = new System.Drawing.Size(292, 72);
+            this.genCalendar.TabIndex = 1;
+            this.genCalendar.Text = "Построить страницу календаря";
+            this.genCalendar.UseVisualStyleBackColor = false;
+            this.genCalendar.Click += new System.EventHandler(this.button1_Click);
             // 
             // label
             // 
-            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label.Location = new System.Drawing.Point(53, 55);
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label.Location = new System.Drawing.Point(49, 55);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(295, 87);
+            this.label.Size = new System.Drawing.Size(299, 87);
             this.label.TabIndex = 2;
-            this.label.Text = " Введите дату в формате:  \r\n              дд.мм.гггг";
+            this.label.Text = " Введите дату :";
             // 
             // date
             // 
@@ -70,11 +70,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackColor = System.Drawing.Color.RoyalBlue;
             this.ClientSize = new System.Drawing.Size(384, 361);
             this.Controls.Add(this.date);
             this.Controls.Add(this.label);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.genCalendar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Visualisation";
             this.Text = "Visualisation";
@@ -85,7 +85,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button genCalendar;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.TextBox date;
     }

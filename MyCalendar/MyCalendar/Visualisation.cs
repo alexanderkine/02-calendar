@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,18 +15,36 @@ namespace MyCalendar
     {
 
         private Label field;
-
+        private Button comeBack;
         public Visualisation()
         {
+            Size = new Size(400,400);
             InitializeComponent();
+        }
+
+        private void comeBack_Click(object sender, EventArgs e)
+        {
+            comeBack.Visible = false;
+            Controls.Clear();
+            Controls.AddRange(new Control[] {genCalendar,label,date});
+            Size = new Size(400, 400);
+            StartMenuColorAndVisible(true, Color.RoyalBlue);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label.Visible = false;
-            button1.Visible = false;
-            date.Visible = false; 
-            BackColor = Color.White;
+            comeBack = new Button()
+            {
+                Text = "Back",
+                Location = new Point(0, 0),
+                Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(204))),
+                Size = new Size(50, 25)
+            };
+            Controls.Add(comeBack);
+            comeBack.Click += comeBack_Click;
+            StartMenuColorAndVisible(false,Color.White);
+            Console.WriteLine(Size.ToString());
+            Console.WriteLine(ClientSize.ToString());
             var dateTime = date.Text;
             var generator = new CalendarPageGenerator(dateTime);
             var grid = generator.GenerateDaysGrid();
@@ -36,25 +55,33 @@ namespace MyCalendar
                 {
                     if (grid[i, 0] == null)
                     {
-                        ClientSize = new Size(ClientSize.Width, ClientSize.Height-50);
+                        ClientSize = new Size(ClientSize.Width, ClientSize.Height-ClientSize.Height/8);
                         break;
                     } 
-                    if (generator.GetDate().Day.ToString().Equals(grid[i, j]) && i!=0)
+                    if (generator.GetDate().Day.ToString().Equals(grid[i, j]) && j != 0)
                     {
-                        AddNewFieldOfGrid(i, j, grid[i, j], Color.Violet);
+                        AddNewFieldOfGrid(i, j, grid[i, j], Color.Purple);
                         continue;
                     }
                     AddNewFieldOfGrid(i, j, grid[i, j], Color.White);
                 }
             }
             var bmp = new Bitmap(Size.Width, Size.Height);
-            DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-            bmp.Save("haha.bmp");
+            DrawToBitmap(bmp, new Rectangle(8,8, bmp.Width, bmp.Height));
+            bmp.Save("haha.bmp");          
+        }
+
+        private void StartMenuColorAndVisible(bool isVisible,Color backColor)
+        {
+            label.Visible = isVisible;
+            genCalendar.Visible = isVisible;
+            date.Visible = isVisible;
+            BackColor = backColor;
         }
 
         private void AddMonthAndYearField(DateTime date)
         {
-            var monthes = new String[] { "January", "February", "March", "April", "May", "June", "July", "August","September","October","November","December" };    
+            var monthes = new[] { "January", "February", "March", "April", "May", "June", "July", "August","September","October","November","December" };    
             field = new Label
             {
                 BackColor = Color.White,
@@ -66,8 +93,8 @@ namespace MyCalendar
                 BorderStyle = BorderStyle.FixedSingle,
                 Text = string.Format("{0},{1}",monthes[date.Month-1],date.Year)
             };
-            Controls.AddRange(new Control[] { field });
-            var haha = new String[] {"#", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};           
+            Controls.Add(field);
+            var daysOfWeek = new[] {"#", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};           
             for (int i = 0; i < 8; i++)
             {
                 field = new Label
@@ -79,9 +106,9 @@ namespace MyCalendar
                     Location = new Point(i * ClientSize.Width / 8, ClientSize.Height / 8 + ClientSize.Height / 16),
                     TextAlign = ContentAlignment.MiddleCenter,
                     BorderStyle = BorderStyle.FixedSingle,
-                    Text = haha[i]
+                    Text = daysOfWeek[i]
                 };
-                Controls.AddRange(new Control[] {field});
+                Controls.Add(field);
             }
         }
 
@@ -94,18 +121,23 @@ namespace MyCalendar
                 foreColor = Color.Red;
             else
                 foreColor = Color.Black; 
+            AddField(i, j, text, backColor, foreColor);
+        }
+
+        private void AddField(int i, int j, string text, Color backColor, Color foreColor)
+        {
             field = new Label
             {
                 BackColor = backColor,
-                Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(204))),
+                Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte) (204))),
                 ForeColor = foreColor,
-                Size = new Size(ClientSize.Width / 8, ClientSize.Height / 8),
-                Location = new Point(j * ClientSize.Width / 8, ClientSize.Height / 4 + i * ClientSize.Height / 8),
+                Size = new Size(ClientSize.Width/8, ClientSize.Height/8),
+                Location = new Point(j*ClientSize.Width/8, ClientSize.Height/4 + i*ClientSize.Height/8),
                 TextAlign = ContentAlignment.MiddleCenter,
                 BorderStyle = BorderStyle.FixedSingle,
                 Text = text
             };
-            Controls.AddRange(new Control[] {field});
+            Controls.Add(field);
         }
     }
 }
