@@ -1,68 +1,71 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyCalendar
 {
     public class CalendarPageGenerator
     {
-        private DateTime Date;
+        private DateTime date;
+        private DateTime dateCounter;
+        private String[][] daysGrid;
+        private Calendar calendar = new GregorianCalendar();
 
         public CalendarPageGenerator(string date)
         {
-            try
+            try 
             {
-                Date = DateTime.Parse(date);       
+                this.date = DateTime.Parse(date);
             }
-            catch (Exception){}   
+            catch (Exception) { }
+            dateCounter = new DateTime(this.date.Year, this.date.Month, 1);
+            daysGrid = new String[6][].Select(x => new String[8]).ToArray();
+        }
+
+        public CalendarPageGenerator(DateTime date)
+        {
+            this.date = date;
+            dateCounter = new DateTime(this.date.Year, this.date.Month, 1);
+            daysGrid = new String[6][].Select(x => new String[8]).ToArray();
         }
 
         public DateTime GetDate()
         {
-            return Date;
-        }
-        public CalendarPageGenerator(DateTime date)
-        {
-            Date = date;
+            return date;
         }
 
-        public String[,] GenerateDaysGrid()
+        public string GetSeason()
         {
-            var daysGrid = new String[6, 8];
-            var firstDay = new DateTime(Date.Year, 1, 1);
-            var dateCounter = new DateTime(Date.Year, Date.Month, 1);
-            for (var i = 0; i < daysGrid.GetLength(0); i++)
+            if (date.Month < 3 || date.Month == 12)
+                return "Winter";
+            if (date.Month >= 3 && date.Month < 6)
+                return "Spring";
+            if (date.Month >= 6 && date.Month < 9)
+                return "Summer";
+            return "Autumn";
+        }
+
+        public String[][] GenerateDaysGrid()
+        {
+            for (var i = 0; i < daysGrid.Length; i++)
             {
-                for (var j = 1; j < daysGrid.GetLength(1); j++)
+                for (var j = 1; j < 8; j++)
                 {
-                    var flag = ((int)dateCounter.DayOfWeek != 0) ? (int)(dateCounter.DayOfWeek) == j : j == 7; //определяет, является ли j днем недели dateCounter
-                    if (!flag) continue;
-                    daysGrid[i, j] = dateCounter.Day.ToString();                   
+                    if (((int) dateCounter.DayOfWeek != 0) ?  j != (int)(dateCounter.DayOfWeek) : j != 7) continue;
+                    daysGrid[i][j] = dateCounter.Day.ToString();
                     dateCounter = dateCounter.AddDays(1);
-                    if (dateCounter.Month != Date.Month)
-                        break;  
+                    if (dateCounter.Month == date.Month) continue;
+                    daysGrid[i][0] = calendar.GetWeekOfYear(GetCorrectDateCounter(ref dateCounter), CalendarWeekRule.FirstDay, DayOfWeek.Monday).ToString();
+                    return daysGrid;
                 }
-                if (dateCounter.DayOfWeek == DayOfWeek.Monday)
-                {
-                    if (dateCounter.Year.Equals(Date.Year))
-                        daysGrid[i, 0] =
-                            ((dateCounter.DayOfYear + ((int) firstDay.DayOfWeek != 0 ? (int) (firstDay.DayOfWeek) : 7))/7).ToString();
-                    else
-                        daysGrid[i, 0] = "53";
-                }
-                else
-                {
-                    if (dateCounter.Year.Equals(Date.Year))
-                        daysGrid[i, 0] = (int.Parse(daysGrid[i - 1, 0]) + 1).ToString();
-                    else
-                        daysGrid[i, 0] = "1";
-                }
-                if (dateCounter.Month != Date.Month)
-                    break;  
+                daysGrid[i][0] = calendar.GetWeekOfYear(GetCorrectDateCounter(ref dateCounter), CalendarWeekRule.FirstDay,DayOfWeek.Monday).ToString();
             }
             return daysGrid;
+        }
+
+        private DateTime GetCorrectDateCounter(ref DateTime dateCounter)
+        {
+            return (dateCounter.Year == date.Year || dateCounter.DayOfWeek == DayOfWeek.Monday) ? dateCounter.AddDays(-1) : dateCounter;
         }
     }
 }

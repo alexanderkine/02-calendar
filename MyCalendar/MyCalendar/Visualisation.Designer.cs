@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Visualisation));
             this.genCalendar = new System.Windows.Forms.Button();
             this.label = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.TextBox();
@@ -46,14 +47,16 @@
             this.genCalendar.TabIndex = 1;
             this.genCalendar.Text = "Построить страницу календаря";
             this.genCalendar.UseVisualStyleBackColor = false;
-            this.genCalendar.Click += new System.EventHandler(this.button1_Click);
+            this.genCalendar.Click += new System.EventHandler(this.genCalendar_Click);
             // 
             // label
             // 
+            this.label.AutoSize = true;
+            this.label.BackColor = System.Drawing.Color.Transparent;
             this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label.Location = new System.Drawing.Point(49, 55);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(299, 87);
+            this.label.Size = new System.Drawing.Size(299, 42);
             this.label.TabIndex = 2;
             this.label.Text = " Введите дату :";
             // 
@@ -71,13 +74,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(384, 361);
             this.Controls.Add(this.date);
             this.Controls.Add(this.label);
             this.Controls.Add(this.genCalendar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Visualisation";
-            this.Text = "Visualisation";
+            this.Text = "CalendarPage";
             this.ResumeLayout(false);
             this.PerformLayout();
 
