@@ -130,4 +130,76 @@
   <data name="Summer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Summer.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Aries" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Aries.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Aquarius" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Aquarius.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Boar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\China\Boar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Cancer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Capricorn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Capricorn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\China\Dog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\China\Dragon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gemini" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Gemini.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Horse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\China\Horse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Leo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Leo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Libra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Libra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monkey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\China\Monkey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\China\Ox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pisces" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Pisces.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rabbit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\China\Rabbit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\China\Ram.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\China\Rat.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rooster" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\China\Rooster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sagittarius" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Sagittarius.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Scorpio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Scorpio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Snake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\China\Snake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Taurus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Taurus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tiger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\China\Tiger.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Virgo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Virgo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

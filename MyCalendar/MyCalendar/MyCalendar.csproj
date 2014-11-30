@@ -78,6 +78,7 @@
     <Compile Include="Visualisation.Designer.cs">
       <DependentUpon>Visualisation.cs</DependentUpon>
     </Compile>
+    <Compile Include="ZodiacSignInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -94,7 +95,31 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="date_converted.ico" />
+    <None Include="Images\Virgo.png" />
+    <None Include="Images\Taurus.png" />
+    <None Include="Images\Aries.png" />
+    <None Include="Images\Aquarius.png" />
     <Content Include="Images\Autumn.jpg" />
+    <None Include="Images\Cancer.png" />
+    <None Include="Images\Capricorn.png" />
+    <None Include="Images\Gemini.png" />
+    <None Include="Images\Leo.png" />
+    <None Include="Images\Libra.png" />
+    <None Include="Images\Pisces.png" />
+    <None Include="Images\Sagittarius.png" />
+    <None Include="Images\Scorpio.png" />
+    <None Include="Images\China\Boar.png" />
+    <None Include="Images\China\Dog.png" />
+    <None Include="Images\China\Dragon.png" />
+    <None Include="Images\China\Horse.png" />
+    <None Include="Images\China\Monkey.png" />
+    <None Include="Images\China\Ox.png" />
+    <None Include="Images\China\Rabbit.png" />
+    <None Include="Images\China\Ram.png" />
+    <None Include="Images\China\Rat.jpg" />
+    <None Include="Images\China\Rooster.png" />
+    <None Include="Images\China\Snake.png" />
+    <None Include="Images\China\Tiger.png" />
     <Content Include="Images\Spring.jpg" />
     <Content Include="Images\Summer.jpg" />
     <None Include="Images\hg-winter.jpg" />
@@ -116,6 +141,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -38,6 +38,7 @@
             // 
             this.genCalendar.AutoSize = true;
             this.genCalendar.BackColor = System.Drawing.Color.Yellow;
+            this.genCalendar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.genCalendar.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.genCalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.genCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -45,7 +46,7 @@
             this.genCalendar.Name = "genCalendar";
             this.genCalendar.Size = new System.Drawing.Size(292, 72);
             this.genCalendar.TabIndex = 1;
-            this.genCalendar.Text = "Построить страницу календаря";
+            this.genCalendar.Text = "Build calendar page";
             this.genCalendar.UseVisualStyleBackColor = false;
             this.genCalendar.Click += new System.EventHandler(this.genCalendar_Click);
             // 
@@ -54,11 +55,11 @@
             this.label.AutoSize = true;
             this.label.BackColor = System.Drawing.Color.Transparent;
             this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label.Location = new System.Drawing.Point(49, 55);
+            this.label.Location = new System.Drawing.Point(83, 77);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(299, 42);
+            this.label.Size = new System.Drawing.Size(233, 42);
             this.label.TabIndex = 2;
-            this.label.Text = " Введите дату :";
+            this.label.Text = " Enter date :";
             // 
             // date
             // 
@@ -79,6 +80,7 @@
             this.Controls.Add(this.date);
             this.Controls.Add(this.label);
             this.Controls.Add(this.genCalendar);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Visualisation";
