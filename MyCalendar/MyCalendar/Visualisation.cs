@@ -11,7 +11,7 @@ namespace MyCalendar
     public partial class Visualisation : Form
     {
 
-        private Label field;
+        private Label field, zodiacImage, zodiacName, animalImage;
         private Button comeBack;
 
         public Visualisation()
@@ -32,9 +32,9 @@ namespace MyCalendar
                 date.Text = "Incorrect date";
                 return;
             }
-            ClientSize = new Size(600, 600);
+            ClientSize = new Size(600, 600);          
             AddComeBackButton();
-            StartMenuColorAndVisible(false);           
+            StartMenuVisible(false);           
             var generator = new CalendarPageGenerator(date.Text);
             DrawSeasonImage(generator.GetDate());
             DrawDaysOfWeekFields();
@@ -43,10 +43,13 @@ namespace MyCalendar
             DrawHoroscopeField(GetZodiacSign(generator.GetDate()));
             DrawPictureAnimalOfYear(generator.GetDate());     
             DrawPictureOfCalendarPage();
+            zodiacImage.BringToFront();
+            zodiacName.BringToFront();
+            animalImage.BringToFront();
         }       
 
         private void AddComeBackButton()
-        {
+        {           
             comeBack = new Button
             {
                 Text = "Back",
@@ -66,10 +69,10 @@ namespace MyCalendar
             Controls.Clear();
             Controls.AddRange(new Control[] { genCalendar, label, date });
             Size = new Size(400, 400);
-            StartMenuColorAndVisible(true);
+            StartMenuVisible(true);
         }
 
-        private void StartMenuColorAndVisible(bool isVisible)
+        private void StartMenuVisible(bool isVisible)
         {
             label.Visible = isVisible;
             genCalendar.Visible = isVisible;
@@ -91,8 +94,9 @@ namespace MyCalendar
 
         private void DrawPictureOfCalendarPage()
         {
-            var bmp = new Bitmap(Size.Width, Size.Height);
-            DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+            var bmp = new Bitmap(ClientSize.Width, ClientSize.Height);
+            foreach (Control con in Controls)
+                con.DrawToBitmap(bmp, new Rectangle(con.Location.X, con.Location.Y, con.Width, con.Height));
             bmp.Save("CalendarPage.bmp");
         }       
 
@@ -140,8 +144,8 @@ namespace MyCalendar
                 BackColor = Color.Transparent,
                 Font = new Font("Microsoft Sans Serif", 30F, FontStyle.Bold, GraphicsUnit.Point, 204),
                 ForeColor = Color.Black,
-                Size = new Size(360, ClientSize.Height / 8 + ClientSize.Height / 16),
-                Location = new Point(120, 0),
+                Size = new Size(ClientSize.Width, ClientSize.Height / 8 + ClientSize.Height / 16),
+                Location = new Point(0, 0),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Text = string.Format("{0} {1}",monthes[date.Month-1],date.Year),
             };
@@ -189,7 +193,7 @@ namespace MyCalendar
 
         private void DrawAnimalImage(Bitmap animal)
         {
-            var animalImage = new Label
+            animalImage = new Label
             {
                 BackColor = Color.Transparent,
                 Location = new Point(Size.Width - 115, 5),
@@ -198,6 +202,7 @@ namespace MyCalendar
                 BackgroundImageLayout = ImageLayout.Stretch
             };
             Controls.Add(animalImage);
+            animalImage.SendToBack();
         }
 
         private static ZodiacSignInfo GetZodiacSign(DateTime date)
@@ -211,22 +216,22 @@ namespace MyCalendar
 
         private void DrawHoroscopeField(ZodiacSignInfo zodiacSign)
         {
-            var zodiacImage = new Label
+            zodiacImage = new Label
             {
                 BackColor = Color.Transparent,
-                Location = new Point(25, 5),
+                Location = new Point(15, 5),
                 Size = new Size(70, 60),
                 BackgroundImage = zodiacSign.Image,
                 BackgroundImageLayout = ImageLayout.Stretch
             };
-            var zodiacName = new Label
+            zodiacName = new Label
             {
                 Text = string.Format("{0}\n{1} - {2}", zodiacSign.Name, zodiacSign.BeginDate, zodiacSign.EndDate),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 204),
                 BackColor = Color.Transparent,
-                Location = new Point(-15, zodiacImage.Size.Height + Size.Height / 120 + zodiacImage.Location.Y),
-                Size = new Size(Size.Width / 4, 30),
+                Location = new Point(0, zodiacImage.Size.Height + Size.Height / 120 + zodiacImage.Location.Y),
+                Size = new Size(Size.Width / 6, 30),
             };
             Controls.AddRange(new Control[] { zodiacImage, zodiacName });
         }
